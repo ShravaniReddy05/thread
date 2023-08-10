@@ -12,7 +12,8 @@ class joinSampleThread1 extends Thread {
 		String userName=sc.next();
 		System.out.println("Enter mobile number :");
 		long mobilenumber=sc.nextLong();
-		//System.out.println("userId :" +userId+"  userName : "+userName+" mobilenumber : "+mobilenumber);	
+		System.out.println("userId :" +userId+"  userName : "+userName+" mobilenumber : "+mobilenumber);	
+		sc.close();
 	}
 }
 class joinSampleThread2 extends Thread {
@@ -37,22 +38,13 @@ public class joinSample
 		joinSampleThread1 th=new joinSampleThread1();
 		th.start();
 		try {
-		th.join(5000);
+			Thread.sleep(5000);
+			th.join();
 		}
 		catch(InterruptedException e)
 		{
 		}
-		
 		joinSampleThread2 th2=new joinSampleThread2();
-		countThread ct=new countThread();
-		ct.start();
-		try {
-			ct.join();
-			}
-			catch(InterruptedException e)
-			{
-			}
 		th2.start();
-			
 		}
 }
