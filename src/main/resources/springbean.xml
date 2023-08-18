@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd"
+ >
+ <bean id="location" class="com.bean.Location">
+ <property name="locationName" value="Mumbai"/>
+ </bean>
+<bean id="device" class="com.bean.Device">
+	<property name="deviceName" value="computer"/>
+	<property name="daysOnRent" value="45"/>
+	<property name="location" ref="location"/>
+</bean> 
+	<bean id="technician" class="com.bean.Technician">
+	<property name="technicianName" value="Erric"/>
+	<property name="device" ref="device"/>
+</bean>
+</beans>
